@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ Профиль</title>
+</head>
+<body>
+    <h2>Добро пожаловать, {{ username }} (Администратор)!</h2>
+    <a href="{{ url_for('logout') }}">Выйти</a>
+    <br>
+    <h3>Административная панель</h3>
+    <!-- Здесь можно добавить административные функции -->
+</body>
+</html>

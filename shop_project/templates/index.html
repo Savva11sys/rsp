@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streetwear Магазин</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Фуфлошмот</h1>
+            <nav>
+                <a href="{{ url_for('shop') }}">Магазин</a>
+                <a href="{{ url_for('login') }}">Войти как администратор</a>
+                <a href="{{ url_for('register') }}">Регистрация</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Новый стиль, новое движение</h2>
+            <p>Самые модные вещи для уличной жизни</p>
+            <a href="{{ url_for('shop') }}" class="btn-primary">Перейти в магазин</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Фуфлошмот | Все права защищены</p>
+        </div>
+    </footer>
+</body>
+</html>

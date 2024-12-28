@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель администратора</title>
+</head>
+<body>
+    <h1>Панель администратора</h1>
+    <h2>Добавить товар</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="Название товара" required><br>
+        <textarea name="description" placeholder="Описание товара" required></textarea><br>
+        <input type="number" name="price" placeholder="Цена" required><br>
+        <input type="file" name="image" required><br>
+        <button type="submit">Добавить товар</button>
+    </form>
+    <h2>Список товаров</h2>
+    {% for product in products %}
+    <div>
+        <h3>{{ product.name }} - {{ product.price }} рублей</h3>
+        <img src="{{ url_for('static', filename='uploads/' + product.image) }}" alt="{{ product.name }}">
+        <form method="POST" action="{{ url_for('delete_product', product_id=product.id) }}">
+            <button type="submit">Удалить</button>
+        </form>
+    </div>
+    {% endfor %}
+    <a href="{{ url_for('logout') }}">Выйти</a>
+</body>
+</html>

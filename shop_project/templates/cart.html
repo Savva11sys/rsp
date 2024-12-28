@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Фуфлошмот</h1>
+            <nav>
+                <a href="{{ url_for('shop') }}">Магазин</a>
+                <a href="{{ url_for('logout') }}">Выйти</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="cart">
+        <h2>Ваша корзина</h2>
+        <div class="cart-items">
+            {% if cart %}
+                {% for item in cart %}
+                <div class="cart-item">
+                    <img src="{{ url_for('static', filename='uploads/' + item.image) }}" alt="{{ item.name }}">
+                    <div class="item-info">
+                        <h3>{{ item.name }}</h3>
+                        <p>{{ item.price }} рублей</p>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p>Ваша корзина пуста.</p>
+            {% endif %}
+        </div>
+        <a href="{{ url_for('shop') }}" class="btn-primary">Продолжить покупки</a>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Фуфлошмот | Все права защищены</p>
+        </div>
+    </footer>
+</body>
+</html>
